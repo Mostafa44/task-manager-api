@@ -1,7 +1,7 @@
 
 const {MongoClient, ObjectID}= require ('mongodb');
 
-const connectionUrl='mongodb://127.0.0.1:27017';
+//const connectionUrl='mongodb://127.0.0.1:27017';
 const databaseName='task-manager';
 
 
@@ -12,7 +12,7 @@ const databaseName='task-manager';
 // console.log(`The length of the raw id is ${id.id.length}`);
 // console.log(`The length of the string id is ${id.toHexString().length}`);
 
-MongoClient.connect(connectionUrl, { useNewUrlParser:true},(error,client)=>{
+MongoClient.connect(process.env.MONGODB_URL, { useNewUrlParser:true},(error,client)=>{
     if(error){
         return console.log(`There was an error and its details are ${error}`);
     }
